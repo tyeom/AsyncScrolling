@@ -1,0 +1,54 @@
+﻿<Window x:Class="AsyncScrolling.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:AsyncScrolling"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <local:MainWindowViewModel />
+    </Window.DataContext>
+    
+    <Grid>
+        <ListView x:Name="xList1" Grid.Row="0" Grid.Column="0" ItemsSource="{Binding MC}" ScrollViewer.IsDeferredScrollingEnabled="True">
+            <!--
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="MouseDoubleClick" Handler="xList1_MouseDoubleClick" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            -->
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="100" Header="UserNum">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding UserNum}" TextAlignment="Center" TextTrimming="CharacterEllipsis" Padding="1"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="100" Header="UserID">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding UserID}" TextAlignment="Center" TextTrimming="CharacterEllipsis" Padding="1"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="110" Header="UserName">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding UserName}" TextAlignment="Center" TextTrimming="CharacterEllipsis" Padding="1"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Width="110" Header="UserChecked">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding UserChecked}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
